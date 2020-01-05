@@ -34,7 +34,6 @@ node {
 		sshCommand remote: remote, sudo: true, command: 'service httpd restart'
 	
             	sshCommand remote: remote, command: 'echo "##################" END Build + deploy #################"'
-            	sshCommand remote: remote, command: 'echo "##################" Test #################"'
         }
     }
 }
