@@ -17,6 +17,7 @@ node {
             	sshCommand remote: remote, command: 'echo "##################" Start Git pull #################"'
 		sh 'echo git pull https://${USERGIT}:${PASSGIT}@bitbucket.org/founa44/api-my-pet.git > gitpull.sh'
 		sshPut remote: remote, from: 'gitpull.sh', into: '/home/ec2-user/app/api-my-pet'
+		sshPut remote: remote, from: 'test.sh', into: '/home/ec2-user/app'
             	sshCommand remote: remote, command: 'cd app/api-my-pet && cat /home/ec2-user/app/api-my-pet/gitpull.sh | bash'
             	sshCommand remote: remote, command: 'cd app/api-my-pet && ls -al'
 		sshRemove remote: remote, path: '/home/ec2-user/app/api-my-pet/gitpull.sh'
